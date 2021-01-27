@@ -178,7 +178,7 @@ def test(data,
                 tbox = xywh2xyxy(labels[:, 1:5])
                 scale_coords(img[si].shape[1:], tbox, shapes[si][0], shapes[si][1])  # native-space labels
                 if plots:
-                    confusion_matrix.process_batch(pred, torch.cat((labels[:, 0:1], tbox), 1))
+                    confusion_matrix.process_batch(predn, torch.cat((labels[:, 0:1], tbox), 1))
 
                 # Per target class
                 for cls in torch.unique(tcls_tensor):
@@ -239,8 +239,8 @@ def test(data,
     if plots:
         confusion_matrix.plot(save_dir=save_dir, names=list(names.values()))
         if wandb and wandb.run:
-            wandb.log({"Images": wandb_images})
-            wandb.log({"Validation": [wandb.Image(str(f), caption=f.name) for f in sorted(save_dir.glob('test*.jpg'))]})
+            val_batches = [wandb.Image(str(f), caption=f.name) for f in sorted(save_dir.glob('test*.jpg'))]
+            wandb.log({"Images": wandb_images, "Validation": val_batches}, commit=False)
 
     # Save JSON
     if save_json and len(jdict):
