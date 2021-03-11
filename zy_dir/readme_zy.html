@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>readme_zy.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h2 id="reference">Reference</h2>
+<ol>
+<li>https://github.com/ultralytics/yolov5/wiki/Train-Custom-Data</li>
+<li>https://github.com/PeterH0323/Smart_Construction</li>
+<li>https://github.com/ultralytics/yolov5/wiki/Docker-Quickstart</li>
+<li>https://www.kaggle.com/c/global-wheat-detection/notebooks</li>
+<li>https://www.kaggle.com/c/global-wheat-detection/discussion/172436</li>
+<li>https://www.kaggle.com/nvnnghia/yolov5-pseudo-labeling</li>
+<li>https://rwightman.github.io/pytorch-image-models/</li>
+<li><a href="https://github.com/ultralytics/yolov5/issues/895">Yolov5 dataset insights to improve mAP</a></li>
+<li>https://github.com/lutzroeder/netron</li>
+<li><a href="https://zhuanlan.zhihu.com/p/147462170">23 款神经网络的设计和可视化工具（8.12 更新）</a></li>
+<li><a href="https://github.com/ultralytics/yolov5/issues/1314">Transfer Learning with Frozen Layers</a></li>
+</ol>
+<h2 id="%E8%BF%90%E8%A1%8C">运行</h2>
+<p><strong>注意：</strong></p>
+<ol>
+<li>
+<p>无特殊说明，默认情况下，以下命令在项目根目录下执行！</p>
+</li>
+<li>
+<p>打开新的 shell 终端时，要设置环境变量:</p>
+</li>
+</ol>
+<pre class="hljs"><code><div>$ <span class="hljs-built_in">export</span> LD_LIBRARY_PATH=/home/zy/anaconda3/lib:<span class="hljs-variable">$LD_LIBRARY_PATH</span> &amp;&amp; <span class="hljs-built_in">export</span> UMEXPR_MAX_THREADS=16
+</div></code></pre>
+<h3 id="%E6%A8%A1%E5%9E%8B%E8%AE%AD%E7%BB%83">模型训练</h3>
+<ul>
+<li>训练日志可视化查看:
+<code>$ tensorboard --logdir runs/train</code></li>
+</ul>
+<p>浏览器查看: <code>http://localhost:6006/</code></p>
+<ul>
+<li>官方 demo 数据训练</li>
+</ul>
+<pre class="hljs"><code><div>$ python train.py --img 640 --batch 8 --epochs 5 \
+  --data coco128.yaml \
+  --weights /home/zy/application/yolov5/models/yolov5s.pt
+</div></code></pre>
+<ul>
+<li>自定义数据的模型训练</li>
+</ul>
+<pre class="hljs"><code><div>$ python train.py --img 640 --batch 32 --epochs 1000   \
+    --data /home/zy/application/yolov5/src_zy/data/data_cancer.yaml   \
+    --weights /home/zy/application/yolov5/models/yolov5s.pt   \
+    --hyp data/hyp.scratch.zy.yaml
+</div></code></pre>
+<p><strong>当前较好的模型</strong></p>
+<ol>
+<li><code>/home/zy/application/yolov5/yolov5/runs/train_exp30/weights</code></li>
+</ol>
+<p>来源:</p>
+<pre class="hljs"><code><div>python -u train.py --batch 32 --img 512 --epochs 1000 \
+  --data /home/zy/application/yolov5/src_zy/data/data_cancer.yaml \
+  --weights /home/zy/application/yolov5/models/yolov5m.pt \
+  --hyp /home/zy/application/yolov5/yolov5/data/hyp.finetune.yaml
+</div></code></pre>
+<ol start="2">
+<li><code>runs/train/exp13/weights/last.pt</code></li>
+</ol>
+<p>来源:</p>
+<pre class="hljs"><code><div>$ python train.py --img 640 --batch 32 --epochs 1000   \
+    --data /home/zy/application/yolov5/src_zy/data/data_cancer.yaml   \
+    --weights /home/zy/application/yolov5/models/yolov5s.pt   \
+    --hyp data/hyp.scratch.zy.yaml
+</div></code></pre>
+<p>训练参数设置:</p>
+<pre class="hljs"><code><div>试验: exp13
+
+全量训练数据, 600 epochs
+
+参数设置:
+
+obj: 0.5  # obj loss gain (scale with pixels)
+
+flipud: 0.5  # image flip up-down (probability)
+
+mixup: 1.0  # image mixup (probability)
+
+
+性能:
+
+Class      Images     Targets           P           R      mAP@.5  mAP@.5:.95: 100%|██████████| 15/15 [00:10&lt;00:00,  1.42it/s]
+                 all         459         728       0.475       0.346       0.319      0.0919
+        inflammation         459         319        0.48       0.464       0.403       0.132
+              cancer         459         409       0.469       0.227       0.235      0.0514
+Optimizer stripped from runs/train/exp13/weights/last.pt, 14.4MB
+Optimizer stripped from runs/train/exp13/weights/best.pt, 14.4MB
+Images sizes do not match. This will causes images to be display incorrectly in the UI.
+600 epochs completed in 12.824 hours.
+</div></code></pre>
+<h3 id="%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%95">模型测试</h3>
+<p>模型测试: 在测试集上的表现</p>
+<pre class="hljs"><code><div>$ python test.py --img-size 640 --batch-size 32 --conf-thres 0.3 --device 0 --task <span class="hljs-built_in">test</span> --augment --save-json \
+  --weights /home/zy/application/yolov5/yolov5/runs/train/exp13/weights/last.pt \
+  --data /home/zy/application/yolov5/src_zy/data/data_cancer.yaml
+</div></code></pre>
+<h3 id="%E6%A8%A1%E5%9E%8B%E5%BA%94%E7%94%A8">模型应用</h3>
+<ul>
+<li>官方 demo 数据</li>
+</ul>
+<pre class="hljs"><code><div>$ python detect.py --<span class="hljs-built_in">source</span> data/images --weights ../models/yolov5s.pt --conf 0.7 --device 0
+</div></code></pre>
+<ul>
+<li>自定义数据</li>
+</ul>
+<pre class="hljs"><code><div>$ python detect.py --img-size 640 --conf 0.5 --device 0 \
+  --<span class="hljs-built_in">source</span> /home/zy/data_set/diy_dataset_yolov5/InflamCancer/images/<span class="hljs-built_in">test</span> \
+  --weights /home/zy/application/yolov5/yolov5/runs/train/exp13/weights/last.pt
+</div></code></pre>
+<h2 id="%E5%85%B6%E4%BB%96">其他</h2>
+<ul>
+<li>数据下载</li>
+</ul>
+<ol>
+<li>VOCtrainval_06-Nov-2007.zip</li>
+</ol>
+<p><code>$ wget -c https://github.com/ultralytics/yolov5/releases/download/v1.0/VOCtrainval_06-Nov-2007.zip</code></p>
+<ol start="2">
+<li>样例数据下载:</li>
+</ol>
+<p><code>$ wget -c https://github.com/ultralytics/yolov5/releases/download/v1.0/coco128.zip</code></p>
+<ol start="3">
+<li>yolov5 镜像下载:</li>
+</ol>
+<p><code>$ sudo docker pull ultralytics/yolov5:latest</code></p>
+<ul>
+<li>glibc 版本问题</li>
+</ul>
+<pre class="hljs"><code><div>ImportError: /lib64/libstdc++.so.6: version `GLIBCXX_3.4.21' not found (required by /home/zy/anaconda3/lib/python3.7/site-packages/google/protobuf/pyext/_message.cpython-37m-x86_64-linux-gnu.so)
+
+$ strings /home/zy/anaconda3/lib/libstdc++.so.6 | grep GLIBC
+
+$ strings /usr/lib64/libstdc++.so.6 | grep GLIBC
+
+发现 /home/zy/anaconda3/lib/libstdc++.so.6 满足版本要求，运行程序时，可以临时设置环境变量
+$ export LD_LIBRARY_PATH=/home/zy/anaconda3/lib:$LD_LIBRARY_PATH
+
+现在程序正常运行!
+</div></code></pre>
+<ul>
+<li>yolov5 依赖的 pytorch</li>
+</ul>
+<pre class="hljs"><code><div>yolov5 依赖的 pytorch: torch==1.7.1+cu101 torchvision==0.8.2+cu101 torchaudio==0.7.2
+
+Using torch 1.7.1+cu101 CUDA:0 (GeForce GTX 1080, 8119.1875MB)
+
+pytorch 下载:
+$ pip install torch==1.7.1+cu101 torchvision==0.8.2+cu101 torchaudio==0.7.2 -f https://download.pytorch.org/whl/torch_stable.html
+
+分别下载到本地，然后 pip 本地安装
+(1) torch==1.7.1+cu101
+$ python -m pip download torch==1.7.1+cu101 -f https://download.pytorch.org/whl/torch_stable.html
+
+Looking in indexes: https://pypi.tuna.tsinghua.edu.cn/simple
+Looking in links: https://download.pytorch.org/whl/torch_stable.html
+Collecting torch==1.7.1+cu101
+  Downloading https://download.pytorch.org/whl/cu101/torch-1.7.1%2Bcu101-cp37-cp37m-linux_x86_64.whl (735.4 MB)
+
+或
+$ wget -c https://download.pytorch.org/whl/cu101/torch-1.7.1%2Bcu101-cp37-cp37m-linux_x86_64.whl
+
+(2) torchvision==0.8.2+cu101
+
+$ python -m pip download torchvision==0.8.2+cu101 -f https://download.pytorch.org/whl/torch_stable.html
+
+Looking in indexes: https://pypi.tuna.tsinghua.edu.cn/simple
+Looking in links: https://download.pytorch.org/whl/torch_stable.html
+Collecting torchvision==0.8.2+cu101
+  Downloading https://download.pytorch.org/whl/cu101/torchvision-0.8.2%2Bcu101-cp37-cp37m-linux_x86_64.whl (12.8 MB)
+
+或
+$ wget -c https://download.pytorch.org/whl/cu101/torchvision-0.8.2%2Bcu101-cp37-cp37m-linux_x86_64.whl
+
+(3) torchaudio==0.7.2
+
+$ python -m pip download torchaudio==0.7.2 -f https://download.pytorch.org/whl/torch_stable.html
+Looking in indexes: https://pypi.tuna.tsinghua.edu.cn/simple
+Looking in links: https://download.pytorch.org/whl/torch_stable.html
+Collecting torchaudio==0.7.2
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/37/16/ecdb9eb09ec6b8133d6c9536ea9e49cd13c9b5873c8488b8b765a39028da/torchaudio-0.7.2-cp37-cp37m-manylinux1_x86_64.whl (7.6 MB)
+
+或
+$ wget -c https://pypi.tuna.tsinghua.edu.cn/packages/37/16/ecdb9eb09ec6b8133d6c9536ea9e49cd13c9b5873c8488b8b765a39028da/torchaudio-0.7.2-cp37-cp37m-manylinux1_x86_64.whl
+
+</div></code></pre>
+<ul>
+<li><a href="https://github.com/lutzroeder/netron">Netron</a></li>
+</ul>
+<pre class="hljs"><code><div>Netron is a viewer for neural network, deep learning and machine learning models.
+
+Netron supports ONNX (.onnx, .pb, .pbtxt), Keras (.h5, .keras), TensorFlow Lite (.tflite),
+Caffe (.caffemodel, .prototxt), Darknet (.cfg), Core ML (.mlmodel), MNN (.mnn),
+MXNet (.model, -symbol.json), ncnn (.param), PaddlePaddle (.zip, __model__),
+Caffe2 (predict_net.pb), Barracuda (.nn), Tengine (.tmfile), TNN (.tnnproto),
+RKNN (.rknn), MindSpore Lite (.ms), UFF (.uff).
+
+
+Netron has experimental support for TensorFlow (.pb, .meta, .pbtxt, .ckpt, .index),
+PyTorch (.pt, .pth), TorchScript (.pt, .pth), OpenVINO (.xml), Torch (.t7),
+Arm NN (.armnn), BigDL (.bigdl, .model), Chainer (.npz, .h5), CNTK (.model, .cntk),
+Deeplearning4j (.zip), MediaPipe (.pbtxt), ML.NET (.zip), scikit-learn (.pkl), TensorFlow.js (model.json, .pb).
+</div></code></pre>
+<h2 id="issues">Issues</h2>
+<ol>
+<li>
+<p><a href="https://github.com/ultralytics/yolov5/issues/2025">How about training my data in pre_trained model and use something about it's mAP</a></p>
+</li>
+<li>
+<p><a href="https://github.com/ultralytics/yolov5/issues/1995">How to improve recall rate on specific class?</a></p>
+</li>
+<li>
+<p><a href="https://github.com/ultralytics/yolov5/issues/1985">How to improve the value of map0.5 and jump out of local optimum?</a></p>
+</li>
+</ol>
+<pre class="hljs"><code><div>You may want to examine your individual loss components, and if one is overfitting
+ more than the others, you might reduce it's contribution to the loss function by
+ reducing it's associated hyperparameter, i.e. hyp['obj'] if objectness is overfitting most etc.
+
+
+improving results is very simple:
+
+Use a larger dataset
+Use a larger model i.e. --weights yolov5x.pt
+Use a larger image size i.e. --img 1280
+Train longer i.e. --epochs 500
+Evolve hyperparameters (see Tutorials) https://github.com/ultralytics/yolov5#tutorials
+</div></code></pre>
+<ol start="4">
+<li>
+<p><a href="https://github.com/ultralytics/yolov5/issues/821">Overfit with small dataset, like KITTI</a></p>
+</li>
+<li>
+<p><a href="https://github.com/ultralytics/yolov5/issues/837">The confidence or category probability value is too small</a></p>
+</li>
+<li>
+<p><a href="https://github.com/ultralytics/yolov5/issues/1808">Object loss in yolov3 vs yolov5</a></p>
+</li>
+<li>
+<p><a href="https://github.com/ultralytics/yolov5/issues/1999">I don't know why val obj_loss, val obj_loss 很快就过拟合了：升高</a></p>
+</li>
+<li>
+<p><a href="https://github.com/ultralytics/yolov5/issues/1932">I don't know why val obj_loss↑</a></p>
+</li>
+</ol>
+
+</body>
+</html>

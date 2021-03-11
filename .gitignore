@@ -1,6 +1,7 @@
 # === DIY by zy ===
 *.txt
 *.code-workspace
+runs_InflamCancer/*
 
 # Repo-specific GitIgnore ----------------------------------------------------------------------------------------------
 *.jpg

@@ -1,0 +1,29 @@
+# PASCAL VOC dataset http://host.robots.ox.ac.uk/pascal/VOC/
+# Train command: python train.py --data voc.yaml
+# Default dataset location is next to /yolov5:
+#   /parent_folder
+#     /VOC
+#     /yolov5
+
+
+# download command/URL (optional)
+# download: bash data/scripts/get_voc.sh
+
+# train and val data as 1) directory: path/images/, 2) file: path/images.txt, or 3) list: [path1/images/, path2/images/]
+
+# 批量缩放图片
+# $ for img in `ls ./*.jpg`; do convert -resize 640x640 $img ../train_640/$img; done
+
+train: /home/zy/application/xinhua_Hirschsprungs_disease/others/diy_dataset_yolov5/HD_winsize_2048_stepsize_512_threshold_0.7/images/train_3200.txt  # 16551 images
+val: /home/zy/application/xinhua_Hirschsprungs_disease/others/diy_dataset_yolov5/HD_winsize_2048_stepsize_512_threshold_0.7/images/val/  # 4952 images
+test: /home/zy/application/xinhua_Hirschsprungs_disease/others/diy_dataset_yolov5/HD_winsize_2048_stepsize_512_threshold_0.7/images/test/
+
+# train: /home/zy/application/xinhua_Hirschsprungs_disease/others/diy_dataset_yolov5/HD_winsize_2048_stepsize_512_threshold_0.7/images/train/  # 16551 images
+# val: /home/zy/application/xinhua_Hirschsprungs_disease/others/diy_dataset_yolov5/HD_winsize_2048_stepsize_512_threshold_0.7/images/val.txt  # 4952 images
+# test: /home/zy/application/xinhua_Hirschsprungs_disease/others/diy_dataset_yolov5/HD_winsize_2048_stepsize_512_threshold_0.7/images/test/
+
+# number of classes
+nc: 1
+
+# class names
+names: [ 'plexus' ]
