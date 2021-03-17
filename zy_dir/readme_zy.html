@@ -400,15 +400,15 @@ code {
 <ul>
 <li>官方 demo 数据训练</li>
 </ul>
-<pre class="hljs"><code><div>$ python train.py --img 640 --batch 8 --epochs 5 \
+<pre class="hljs"><code><div>$ python3 train.py --img 640 --batch 8 --epochs 5 \
   --data coco128.yaml \
   --weights /home/zy/application/yolov5/models/yolov5s.pt
 </div></code></pre>
 <ul>
 <li>自定义数据的模型训练</li>
 </ul>
-<pre class="hljs"><code><div>$ python train.py --img 640 --batch 32 --epochs 1000   \
-    --data /home/zy/application/yolov5/src_zy/data/data_cancer.yaml   \
+<pre class="hljs"><code><div>$ python3 train.py --img 640 --batch 32 --epochs 1000   \
+    --data /home/zy/application/yolov5/yolov5/zy_dir/data/data_cancer.yaml   \
     --weights /home/zy/application/yolov5/models/yolov5s.pt   \
     --hyp data/hyp.scratch.zy.yaml
 </div></code></pre>
@@ -417,8 +417,8 @@ code {
 <li><code>/home/zy/application/yolov5/yolov5/runs/train_exp30/weights</code></li>
 </ol>
 <p>来源:</p>
-<pre class="hljs"><code><div>python -u train.py --batch 32 --img 512 --epochs 1000 \
-  --data /home/zy/application/yolov5/src_zy/data/data_cancer.yaml \
+<pre class="hljs"><code><div>python3 -u train.py --batch 32 --img 512 --epochs 1000 \
+  --data /home/zy/application/yolov5/yolov5/zy_dir/data/data_cancer.yaml \
   --weights /home/zy/application/yolov5/models/yolov5m.pt \
   --hyp /home/zy/application/yolov5/yolov5/data/hyp.finetune.yaml
 </div></code></pre>
@@ -426,8 +426,8 @@ code {
 <li><code>runs/train/exp13/weights/last.pt</code></li>
 </ol>
 <p>来源:</p>
-<pre class="hljs"><code><div>$ python train.py --img 640 --batch 32 --epochs 1000   \
-    --data /home/zy/application/yolov5/src_zy/data/data_cancer.yaml   \
+<pre class="hljs"><code><div>$ python3 train.py --img 640 --batch 32 --epochs 1000   \
+    --data /home/zy/application/yolov5/yolov5/zy_dir/data/data_cancer.yaml   \
     --weights /home/zy/application/yolov5/models/yolov5s.pt   \
     --hyp data/hyp.scratch.zy.yaml
 </div></code></pre>
@@ -458,20 +458,27 @@ Images sizes do not match. This will causes images to be display incorrectly in 
 </div></code></pre>
 <h3 id="%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%95">模型测试</h3>
 <p>模型测试: 在测试集上的表现</p>
-<pre class="hljs"><code><div>$ python test.py --img-size 640 --batch-size 32 --conf-thres 0.3 --device 0 --task <span class="hljs-built_in">test</span> --augment --save-json \
-  --weights /home/zy/application/yolov5/yolov5/runs/train/exp13/weights/last.pt \
-  --data /home/zy/application/yolov5/src_zy/data/data_cancer.yaml
+<p>HD dataset</p>
+<p>当前最好模型: <strong>/home/zy/application/yolov5/yolov5/runs/train/exp/weights/best.pt</strong></p>
+<pre class="hljs"><code><div>$ python3 test.py --img-size 640 --batch-size 32 --conf-thres 0.3 --device 0 --task <span class="hljs-built_in">test</span> --augment --save-json \
+  --weights /home/zy/application/yolov5/yolov5/runs/train/exp/weights/last.pt \
+  --data /home/zy/application/yolov5/yolov5/zy_dir/data/data_cancer.yaml
+</div></code></pre>
+<p>InflamCancer</p>
+<pre class="hljs"><code><div>$ python3 test.py --img-size 640 --batch-size 32 --conf-thres 0.3 --device 0 --task <span class="hljs-built_in">test</span> --augment --save-json \
+  --weights /home/zy/application/yolov5/yolov5/runs_InflamCancer/train/exp13/weights/last.pt \
+  --data /home/zy/application/yolov5/yolov5/zy_dir/data/data_cancer.yaml
 </div></code></pre>
 <h3 id="%E6%A8%A1%E5%9E%8B%E5%BA%94%E7%94%A8">模型应用</h3>
 <ul>
 <li>官方 demo 数据</li>
 </ul>
-<pre class="hljs"><code><div>$ python detect.py --<span class="hljs-built_in">source</span> data/images --weights ../models/yolov5s.pt --conf 0.7 --device 0
+<pre class="hljs"><code><div>$ python3 detect.py --<span class="hljs-built_in">source</span> data/images --weights ../models/yolov5s.pt --conf 0.7 --device 0
 </div></code></pre>
 <ul>
 <li>自定义数据</li>
 </ul>
-<pre class="hljs"><code><div>$ python detect.py --img-size 640 --conf 0.5 --device 0 \
+<pre class="hljs"><code><div>$ python3 detect.py --img-size 640 --conf 0.5 --device 0 \
   --<span class="hljs-built_in">source</span> /home/zy/data_set/diy_dataset_yolov5/InflamCancer/images/<span class="hljs-built_in">test</span> \
   --weights /home/zy/application/yolov5/yolov5/runs/train/exp13/weights/last.pt
 </div></code></pre>
@@ -517,7 +524,7 @@ $ pip install torch==1.7.1+cu101 torchvision==0.8.2+cu101 torchaudio==0.7.2 -f h
 
 分别下载到本地，然后 pip 本地安装
 (1) torch==1.7.1+cu101
-$ python -m pip download torch==1.7.1+cu101 -f https://download.pytorch.org/whl/torch_stable.html
+$ python3 -m pip download torch==1.7.1+cu101 -f https://download.pytorch.org/whl/torch_stable.html
 
 Looking in indexes: https://pypi.tuna.tsinghua.edu.cn/simple
 Looking in links: https://download.pytorch.org/whl/torch_stable.html
@@ -529,7 +536,7 @@ $ wget -c https://download.pytorch.org/whl/cu101/torch-1.7.1%2Bcu101-cp37-cp37m-
 
 (2) torchvision==0.8.2+cu101
 
-$ python -m pip download torchvision==0.8.2+cu101 -f https://download.pytorch.org/whl/torch_stable.html
+$ python3 -m pip download torchvision==0.8.2+cu101 -f https://download.pytorch.org/whl/torch_stable.html
 
 Looking in indexes: https://pypi.tuna.tsinghua.edu.cn/simple
 Looking in links: https://download.pytorch.org/whl/torch_stable.html
@@ -541,7 +548,7 @@ $ wget -c https://download.pytorch.org/whl/cu101/torchvision-0.8.2%2Bcu101-cp37-
 
 (3) torchaudio==0.7.2
 
-$ python -m pip download torchaudio==0.7.2 -f https://download.pytorch.org/whl/torch_stable.html
+$ python3 -m pip download torchaudio==0.7.2 -f https://download.pytorch.org/whl/torch_stable.html
 Looking in indexes: https://pypi.tuna.tsinghua.edu.cn/simple
 Looking in links: https://download.pytorch.org/whl/torch_stable.html
 Collecting torchaudio==0.7.2

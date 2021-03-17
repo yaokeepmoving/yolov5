@@ -14,13 +14,9 @@
 # 批量缩放图片
 # $ for img in `ls ./*.jpg`; do convert -resize 640x640 $img ../train_640/$img; done
 
-train: /home/zy/application/xinhua_Hirschsprungs_disease/others/diy_dataset_yolov5/HD_winsize_2048_stepsize_512_threshold_0.7/images/train_3200.txt  # 16551 images
-val: /home/zy/application/xinhua_Hirschsprungs_disease/others/diy_dataset_yolov5/HD_winsize_2048_stepsize_512_threshold_0.7/images/val/  # 4952 images
-test: /home/zy/application/xinhua_Hirschsprungs_disease/others/diy_dataset_yolov5/HD_winsize_2048_stepsize_512_threshold_0.7/images/test/
-
-# train: /home/zy/application/xinhua_Hirschsprungs_disease/others/diy_dataset_yolov5/HD_winsize_2048_stepsize_512_threshold_0.7/images/train/  # 16551 images
-# val: /home/zy/application/xinhua_Hirschsprungs_disease/others/diy_dataset_yolov5/HD_winsize_2048_stepsize_512_threshold_0.7/images/val.txt  # 4952 images
-# test: /home/zy/application/xinhua_Hirschsprungs_disease/others/diy_dataset_yolov5/HD_winsize_2048_stepsize_512_threshold_0.7/images/test/
+train: /home/zy/data_set/diy_dataset_yolov5/HD_winsize_1024_stepsize_512_threshold_0.7/images/train/
+val: /home/zy/data_set/diy_dataset_yolov5/HD_winsize_1024_stepsize_512_threshold_0.7/images/test/
+test: /home/zy/data_set/diy_dataset_yolov5/HD_winsize_1024_stepsize_512_threshold_0.7/images/test/
 
 # number of classes
 nc: 1

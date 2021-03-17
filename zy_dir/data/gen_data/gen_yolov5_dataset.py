@@ -22,16 +22,19 @@ CLASS_NAME_LIST = ['plexus']
 # 类别名称映射到序号
 NAME2INDEX_DICT = {name: i for i, name in enumerate(CLASS_NAME_LIST)}
 
-DATA_STORE_ROOT = '/home/zy/application/xinhua_Hirschsprungs_disease/others/'
+# VOC 格式的数据集
 
-IMAGE_SET_ROOT = DATA_STORE_ROOT + "VOC_HD_winsize_2048_stepsize_512_threshold_0.7_/ImageSets/Main"  # 图片区分文件的路径
-IMAGE_PATH = DATA_STORE_ROOT + "VOC_HD_winsize_2048_stepsize_512_threshold_0.7_/JPEGImages"  # 图片的位置
-ANNOTATIONS_PATH = DATA_STORE_ROOT + "VOC_HD_winsize_2048_stepsize_512_threshold_0.7_/Annotations"  # 数据集标签文件的位置
-LABELS_ROOT = DATA_STORE_ROOT + "VOC_HD_winsize_2048_stepsize_512_threshold_0.7_/Labels"  # 进行归一化之后的标签位置
+DATA_STORE_ROOT = '/home/zy/data_set/'
+
+IMAGE_SET_ROOT = DATA_STORE_ROOT + "VOC_HD_winsize_1024_stepsize_512_threshold_0.7/ImageSets/Main"  # 图片区分文件的路径
+IMAGE_PATH = DATA_STORE_ROOT + "VOC_HD_winsize_1024_stepsize_512_threshold_0.7/JPEGImages"  # 图片的位置
+ANNOTATIONS_PATH = DATA_STORE_ROOT + "VOC_HD_winsize_1024_stepsize_512_threshold_0.7/Annotations"  # 数据集标签文件的位置
+LABELS_ROOT = DATA_STORE_ROOT + "VOC_HD_winsize_1024_stepsize_512_threshold_0.7/Labels"  # 进行归一化之后的标签位置
 
 # yolov5 格式的数据集
-DEST_IMAGES_PATH = "diy_dataset_yolov5/HD_winsize_2048_stepsize_512_threshold_0.7/images"  # 区分训练集、测试集、验证集的图片目标路径
-DEST_LABELS_PATH = "diy_dataset_yolov5/HD_winsize_2048_stepsize_512_threshold_0.7/labels"  # 区分训练集、测试集、验证集的标签文件目标路径
+
+DEST_IMAGES_PATH = "diy_dataset_yolov5/HD_winsize_1024_stepsize_512_threshold_0.7/images"  # 区分训练集、测试集、验证集的图片目标路径
+DEST_LABELS_PATH = "diy_dataset_yolov5/HD_winsize_1024_stepsize_512_threshold_0.7/labels"  # 区分训练集、测试集、验证集的标签文件目标路径
 
 
 def coordinate_converter(size, box):

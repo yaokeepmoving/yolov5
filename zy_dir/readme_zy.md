@@ -33,7 +33,7 @@ $ export LD_LIBRARY_PATH=/home/zy/anaconda3/lib:$LD_LIBRARY_PATH && export UMEXP
 - 官方 demo 数据训练
 
 ```bash
-$ python train.py --img 640 --batch 8 --epochs 5 \
+$ python3 train.py --img 640 --batch 8 --epochs 5 \
   --data coco128.yaml \
   --weights /home/zy/application/yolov5/models/yolov5s.pt
 ```
@@ -41,8 +41,8 @@ $ python train.py --img 640 --batch 8 --epochs 5 \
 - 自定义数据的模型训练
 
 ```bash
-$ python train.py --img 640 --batch 32 --epochs 1000   \
-    --data /home/zy/application/yolov5/src_zy/data/data_cancer.yaml   \
+$ python3 train.py --img 640 --batch 32 --epochs 1000   \
+    --data /home/zy/application/yolov5/yolov5/zy_dir/data/data_cancer.yaml   \
     --weights /home/zy/application/yolov5/models/yolov5s.pt   \
     --hyp data/hyp.scratch.zy.yaml
 ```
@@ -54,8 +54,8 @@ $ python train.py --img 640 --batch 32 --epochs 1000   \
 来源:
 
 ```bash
-python -u train.py --batch 32 --img 512 --epochs 1000 \
-  --data /home/zy/application/yolov5/src_zy/data/data_cancer.yaml \
+python3 -u train.py --batch 32 --img 512 --epochs 1000 \
+  --data /home/zy/application/yolov5/yolov5/zy_dir/data/data_cancer.yaml \
   --weights /home/zy/application/yolov5/models/yolov5m.pt \
   --hyp /home/zy/application/yolov5/yolov5/data/hyp.finetune.yaml
 ```
@@ -65,8 +65,8 @@ python -u train.py --batch 32 --img 512 --epochs 1000 \
 来源:
 
 ```bash
-$ python train.py --img 640 --batch 32 --epochs 1000   \
-    --data /home/zy/application/yolov5/src_zy/data/data_cancer.yaml   \
+$ python3 train.py --img 640 --batch 32 --epochs 1000   \
+    --data /home/zy/application/yolov5/yolov5/zy_dir/data/data_cancer.yaml   \
     --weights /home/zy/application/yolov5/models/yolov5s.pt   \
     --hyp data/hyp.scratch.zy.yaml
 ```
@@ -104,10 +104,23 @@ Images sizes do not match. This will causes images to be display incorrectly in 
 
 模型测试: 在测试集上的表现
 
+HD dataset
+
+当前最好模型: **/home/zy/application/yolov5/yolov5/runs/train/exp/weights/best.pt**
+
 ```bash
-$ python test.py --img-size 640 --batch-size 32 --conf-thres 0.3 --device 0 --task test --augment --save-json \
-  --weights /home/zy/application/yolov5/yolov5/runs/train/exp13/weights/last.pt \
-  --data /home/zy/application/yolov5/src_zy/data/data_cancer.yaml
+$ python3 test.py --img-size 640 --batch-size 32 --conf-thres 0.3 --device 0 --task test --augment --save-json \
+  --weights /home/zy/application/yolov5/yolov5/runs/train/exp/weights/last.pt \
+  --data /home/zy/application/yolov5/yolov5/zy_dir/data/data_cancer.yaml
+```
+
+
+InflamCancer
+
+```bash
+$ python3 test.py --img-size 640 --batch-size 32 --conf-thres 0.3 --device 0 --task test --augment --save-json \
+  --weights /home/zy/application/yolov5/yolov5/runs_InflamCancer/train/exp13/weights/last.pt \
+  --data /home/zy/application/yolov5/yolov5/zy_dir/data/data_cancer.yaml
 ```
 
 ### 模型应用
@@ -115,13 +128,13 @@ $ python test.py --img-size 640 --batch-size 32 --conf-thres 0.3 --device 0 --ta
 - 官方 demo 数据
 
 ```bash
-$ python detect.py --source data/images --weights ../models/yolov5s.pt --conf 0.7 --device 0
+$ python3 detect.py --source data/images --weights ../models/yolov5s.pt --conf 0.7 --device 0
 ```
 
 - 自定义数据
 
 ```bash
-$ python detect.py --img-size 640 --conf 0.5 --device 0 \
+$ python3 detect.py --img-size 640 --conf 0.5 --device 0 \
   --source /home/zy/data_set/diy_dataset_yolov5/InflamCancer/images/test \
   --weights /home/zy/application/yolov5/yolov5/runs/train/exp13/weights/last.pt
 ```
@@ -172,7 +185,7 @@ $ pip install torch==1.7.1+cu101 torchvision==0.8.2+cu101 torchaudio==0.7.2 -f h
 
 分别下载到本地，然后 pip 本地安装
 (1) torch==1.7.1+cu101
-$ python -m pip download torch==1.7.1+cu101 -f https://download.pytorch.org/whl/torch_stable.html
+$ python3 -m pip download torch==1.7.1+cu101 -f https://download.pytorch.org/whl/torch_stable.html
 
 Looking in indexes: https://pypi.tuna.tsinghua.edu.cn/simple
 Looking in links: https://download.pytorch.org/whl/torch_stable.html
@@ -184,7 +197,7 @@ $ wget -c https://download.pytorch.org/whl/cu101/torch-1.7.1%2Bcu101-cp37-cp37m-
 
 (2) torchvision==0.8.2+cu101
 
-$ python -m pip download torchvision==0.8.2+cu101 -f https://download.pytorch.org/whl/torch_stable.html
+$ python3 -m pip download torchvision==0.8.2+cu101 -f https://download.pytorch.org/whl/torch_stable.html
 
 Looking in indexes: https://pypi.tuna.tsinghua.edu.cn/simple
 Looking in links: https://download.pytorch.org/whl/torch_stable.html
@@ -196,7 +209,7 @@ $ wget -c https://download.pytorch.org/whl/cu101/torchvision-0.8.2%2Bcu101-cp37-
 
 (3) torchaudio==0.7.2
 
-$ python -m pip download torchaudio==0.7.2 -f https://download.pytorch.org/whl/torch_stable.html
+$ python3 -m pip download torchaudio==0.7.2 -f https://download.pytorch.org/whl/torch_stable.html
 Looking in indexes: https://pypi.tuna.tsinghua.edu.cn/simple
 Looking in links: https://download.pytorch.org/whl/torch_stable.html
 Collecting torchaudio==0.7.2
